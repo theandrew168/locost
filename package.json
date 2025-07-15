@@ -1,0 +1,63 @@
+{
+	"name": "locost",
+	"version": "0.0.1",
+	"type": "module",
+	"private": true,
+	"scripts": {
+		"dev": "vite dev",
+		"build": "vite build",
+		"preview": "vite preview",
+		"test": "vitest run",
+		"check": "tsc && svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+		"format": "prettier --write ."
+	},
+	"devDependencies": {
+		"@ianvs/prettier-plugin-sort-imports": "^4.5.1",
+		"@sveltejs/adapter-node": "^5.2.13",
+		"@sveltejs/kit": "^2.22.0",
+		"@sveltejs/vite-plugin-svelte": "^6.0.0",
+		"prettier": "^3.6.2",
+		"prettier-plugin-svelte": "^3.4.0",
+		"svelte": "^5.0.0",
+		"svelte-check": "^4.0.0",
+		"typescript": "^5.0.0",
+		"vite": "^7.0.4"
+	},
+	"prettier": {
+		"arrowParens": "always",
+		"bracketSameLine": false,
+		"bracketSpacing": true,
+		"jsxSingleQuote": false,
+		"printWidth": 120,
+		"semi": true,
+		"singleQuote": false,
+		"trailingComma": "all",
+		"useTabs": true,
+		"importOrder": [
+			"<BUILTIN_MODULES>",
+			"",
+			"<THIRD_PARTY_MODULES>",
+			"",
+			"^\\$lib/(.*)$",
+			"",
+			"^[.]"
+		],
+		"importOrderCaseSensitive": false,
+		"importOrderTypeScriptVersion": "5.0.0",
+		"importOrderParserPlugins": [
+			"typescript"
+		],
+		"plugins": [
+			"@ianvs/prettier-plugin-sort-imports",
+			"prettier-plugin-svelte"
+		],
+		"overrides": [
+			{
+				"files": "*.svelte",
+				"options": {
+					"parser": "svelte"
+				}
+			}
+		]
+	}
+}
