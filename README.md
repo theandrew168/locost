@@ -1,4 +1,4 @@
-# locost
+# LoCost
 
 Web App for Analzing Lines of Code + Cost
 
