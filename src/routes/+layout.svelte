@@ -55,11 +55,6 @@
 		gap: 1em;
 	}
 
-	.nav-links a {
-		color: inherit;
-		text-decoration: none;
-	}
-
 	.home-link {
 		margin-right: auto;
 	}
@@ -81,7 +76,7 @@
 		flex-grow: 1;
 		flex-basis: 0;
 		color: var(--color-black);
-		background-color: var(--color-gray);
+		background-color: var(--color-light-gray);
 	}
 
 	.page-footer {

@@ -54,6 +54,7 @@
 		text-align: center;
 	}
 	.features-header-icon {
+		display: inline-flex;
 		color: var(--color-primary);
 	}
 	.features-header-title {
@@ -79,6 +80,7 @@
 		margin-bottom: 1rem;
 	}
 	.features-list-item-icon {
+		display: inline-flex;
 		color: var(--color-primary);
 	}
 </style>
