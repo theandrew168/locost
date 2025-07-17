@@ -6,58 +6,15 @@
 
 <h1>Welcome to LoCost</h1>
 
-<p>
-	Estimated Cost to Develop (organic): {data.report.estimatedCost.toLocaleString("en-US", {
-		style: "currency",
-		currency: "USD",
-	})}
-</p>
-<p>
-	Estimated Schedule Effort (paid): {data.report.estimatedScheduleMonths.toLocaleString("en-US", {
-		maximumFractionDigits: 2,
-	})} months
-</p>
-<p>
-	Estimated People Required (organic): {data.report.estimatedPeople.toLocaleString("en-US", {
-		maximumFractionDigits: 2,
-	})}
-</p>
-
-<table>
-	<thead>
-		<tr>
-			<th>Language</th>
-			<th>Files</th>
-			<th>Lines</th>
-			<th>Blanks</th>
-			<th>Comments</th>
-			<th>Code</th>
-			<th>Complexity</th>
-		</tr>
-	</thead>
-	<tbody>
-		{#each data.report.languageSummary as languageSummary}
-			<tr>
-				<td>{languageSummary.name}</td>
-				<td>{languageSummary.count}</td>
-				<td>{languageSummary.lines}</td>
-				<td>{languageSummary.blank}</td>
-				<td>{languageSummary.comment}</td>
-				<td>{languageSummary.code}</td>
-				<td>{languageSummary.complexity}</td>
-			</tr>
-		{/each}
-	</tbody>
-</table>
-
-<style>
-	table {
-		border: 1px solid black;
-		border-collapse: collapse;
-	}
-	th,
-	td {
-		border: 1px solid black;
-		padding: 4px 8px;
-	}
-</style>
+{#each data.repos as repo}
+	<h2>{repo.name}</h2>
+	<p>
+		<a href={repo.html_url} target="_blank" rel="noopener noreferrer">
+			{repo.html_url}
+		</a>
+	</p>
+	<p>
+		<a href={`/analyze/${repo.full_name}`}> Analyze this repository </a>
+	</p>
+	<p>Stars: {repo.stargazers_count}</p>
+{/each}
