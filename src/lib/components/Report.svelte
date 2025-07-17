@@ -57,12 +57,12 @@
 
 <style>
 	table {
-		border: 1px solid black;
+		border: 1px solid var(--color-black);
 		border-collapse: collapse;
 	}
 	th,
 	td {
-		border: 1px solid black;
+		border: 1px solid var(--color-black);
 		padding: 4px 8px;
 	}
 </style>
