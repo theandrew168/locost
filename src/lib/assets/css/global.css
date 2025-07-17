@@ -1,0 +1,24 @@
+:root {
+	--color-white: oklch(98.5% 0 0);
+	--color-gray: oklch(96.7% 0.003 264.542);
+	--color-primary: oklch(54.6% 0.245 262.881);
+	--color-primary-hover: oklch(48.8% 0.243 264.376);
+	--shadow: 0 1px 1px hsl(0deg 0% 0% / 0.3);
+	--container-width: 48em;
+}
+
+:root {
+	/* An em on the root element is relative to the browser’s default. */
+	font-size: 1em;
+}
+
+html {
+	background-color: var(--background-color);
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	min-height: 100vh;
+}

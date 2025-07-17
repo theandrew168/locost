@@ -1,6 +1,6 @@
 # LoCost
 
-Web App for Analzing Lines of Code + Cost
+Web App for Analyzing Lines of Code + Cost
 
 ## Local Development
 

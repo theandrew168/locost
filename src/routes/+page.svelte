@@ -1,20 +1,84 @@
-<script lang="ts">
-	import type { PageProps } from "./$types";
+<script>
+	import { faGithub } from "@fortawesome/free-brands-svg-icons";
+	import { faChartColumn, faCode, faDollarSign } from "@fortawesome/free-solid-svg-icons";
 
-	let { data }: PageProps = $props();
+	import Icon from "$lib/components/Icon.svelte";
+	import LinkButton from "$lib/components/LinkButton.svelte";
 </script>
 
-<h1>Welcome to LoCost</h1>
+<section class="page-content">
+	<header class="features-header">
+		<span class="features-header-icon">
+			<Icon icon={faChartColumn} size={48} />
+		</span>
+		<h1 class="features-header-title">LoCost</h1>
+		<p>Analyze your GitHub repositories for lines of code and estimated cost</p>
+	</header>
 
-{#each data.repos as repo}
-	<h2>{repo.name}</h2>
-	<p>
-		<a href={repo.html_url} target="_blank" rel="noopener noreferrer">
-			{repo.html_url}
-		</a>
-	</p>
-	<p>
-		<a href={`/analyze/${repo.full_name}`}> Analyze this repository </a>
-	</p>
-	<p>Stars: {repo.stargazers_count}</p>
-{/each}
+	<article class="features-card">
+		<h2 class="features-list-header">How it works</h2>
+		<ul>
+			<li class="features-list-item">
+				<span class="features-list-item-icon">
+					<Icon icon={faGithub} />
+				</span>
+				Sign in with GitHub to access your repositories
+			</li>
+			<li class="features-list-item">
+				<span class="features-list-item-icon">
+					<Icon icon={faCode} />
+				</span>
+				Select a repository to analyze
+			</li>
+			<li class="features-list-item">
+				<span class="features-list-item-icon">
+					<Icon icon={faDollarSign} />
+				</span>
+				View detailed code metrics and estimated development costs
+			</li>
+		</ul>
+		<LinkButton href="/browse">
+			<Icon icon={faGithub} />
+			Sign in with GitHub
+		</LinkButton>
+	</article>
+</section>
+
+<style>
+	.page-content {
+		max-width: 32em;
+		margin: 0 auto;
+	}
+	.features-header {
+		margin: 4em 0;
+		text-align: center;
+	}
+	.features-header-icon {
+		color: var(--color-primary);
+	}
+	.features-header-title {
+		font-size: 2.5rem;
+		font-weight: 600;
+		margin: 0.5em 0;
+	}
+	.features-card {
+		background-color: var(--color-white);
+		box-shadow: var(--shadow);
+		border-radius: 1em;
+		padding: 3em;
+	}
+	.features-list-header {
+		font-size: 1.5rem;
+		font-weight: 500;
+		margin-bottom: 1rem;
+	}
+	.features-list-item {
+		display: flex;
+		align-items: center;
+		gap: 0.5em;
+		margin-bottom: 1rem;
+	}
+	.features-list-item-icon {
+		color: var(--color-primary);
+	}
+</style>
