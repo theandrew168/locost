@@ -2,7 +2,7 @@
 	--color-white: oklch(98.5% 0 0);
 	--color-black: oklch(14.5% 0 0);
 	--color-light-gray: oklch(96.7% 0.003 264.542);
-	--color-mid-gray: oklch(92.8% 0.006 264.531);
+	--color-medium-gray: oklch(92.8% 0.006 264.531);
 	--color-dark-gray: oklch(70.7% 0.022 261.325);
 	--color-primary: oklch(54.6% 0.245 262.881);
 	--color-primary-hover: oklch(48.8% 0.243 264.376);

@@ -22,7 +22,7 @@
 					<div class="browse-list-item-header">
 						<span class="browse-list-item-name">
 							<span class="browse-list-item-icon">
-								<Icon icon={faFolder} />
+								<Icon icon={faFolder} size={20} />
 							</span>
 							<span>{repo.name}</span>
 						</span>
@@ -71,6 +71,7 @@
 	.browse-list-item {
 		display: block;
 		padding: 1em;
+		border-bottom: 1px solid var(--color-medium-gray);
 	}
 	.browse-list-item:hover {
 		cursor: pointer;
@@ -96,7 +97,7 @@
 	.browse-list-item-language {
 		font-size: 0.75rem;
 		font-weight: 500;
-		background-color: var(--color-mid-gray);
+		background-color: var(--color-medium-gray);
 		padding: 0.25em 0.5em;
 		border-radius: 1em;
 	}
