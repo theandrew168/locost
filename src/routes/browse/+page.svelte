@@ -71,11 +71,13 @@
 	.browse-list-item {
 		display: block;
 		padding: 1em;
-		border-bottom: 1px solid var(--color-medium-gray);
 	}
 	.browse-list-item:hover {
 		cursor: pointer;
 		background-color: var(--color-light-gray);
+	}
+	.browse-list-item:not(:last-child) {
+		border-bottom: 1px solid var(--color-medium-gray);
 	}
 	.browse-list-item-header {
 		display: flex;

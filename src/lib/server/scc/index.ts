@@ -46,6 +46,7 @@ export type SCCReport = {
 	estimatedPeople: number;
 };
 
+// Promise-ify child_process.exec
 function run(cmd: string): Promise<string> {
 	return new Promise((resolve, reject) => {
 		exec(cmd, (error, stdout, stderr) => {
@@ -63,7 +64,6 @@ function run(cmd: string): Promise<string> {
 export class SCCAnalyzer {
 	async analyze(path: string): Promise<SCCReport> {
 		const cmd = `scc --format json2 ${path}`;
-		console.log(`Running command: ${cmd}`);
 		const output = await run(cmd);
 
 		const reportJSON: SCCReportJSON = JSON.parse(output);

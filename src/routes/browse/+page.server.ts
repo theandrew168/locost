@@ -1,5 +1,7 @@
 import type { PageServerLoad } from "./$types";
 
+// TODO: Cache the repos.
+
 export const load: PageServerLoad = async ({ locals }) => {
 	console.log("Fetching repo data with Octokit...");
 	const repos = await locals.octokit.rest.search.repos({

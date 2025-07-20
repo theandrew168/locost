@@ -45,7 +45,7 @@
 <style>
 	.page-header {
 		padding: 1.5em;
-		border-bottom: 1px solid black;
+		border-bottom: 1px solid var(--color-medium-gray);
 	}
 
 	.nav-links {
@@ -81,7 +81,7 @@
 
 	.page-footer {
 		padding: 1.5em;
-		border-top: 1px solid var(--color-black);
+		border-top: 1px solid var(--color-medium-gray);
 
 		display: flex;
 		align-items: center;

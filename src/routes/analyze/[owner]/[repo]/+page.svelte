@@ -6,8 +6,6 @@
 	let { data }: PageProps = $props();
 </script>
 
-<h1>Welcome to <a href="/">LoCost</a></h1>
-
 {#await data.report}
 	<p>Cloning and analyzing repo...</p>
 {:then value}
