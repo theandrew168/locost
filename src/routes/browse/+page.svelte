@@ -1,23 +1,32 @@
 <script lang="ts">
+	import { page } from "$app/state";
+
+	import Loader from "$lib/components/Loader.svelte";
 	import RepoList from "$lib/components/RepoList.svelte";
 
 	import type { PageProps } from "./$types";
 
 	let { data }: PageProps = $props();
+
+	let q = $derived(page.url.searchParams.get("q") ?? "");
 </script>
 
 <section>
 	<header class="browse-header">
 		<h1 class="browse-header-title">Your Repositories</h1>
-		<input class="browse-header-search" type="text" placeholder="Search repositories..." />
+		<search>
+			<form method="GET" action="/browse">
+				<input class="browse-header-search" type="text" name="q" value={q} placeholder="Search repositories..." />
+			</form>
+		</search>
 	</header>
 
 	{#await data.repos}
-		<p>Fetching repositories...</p>
+		<Loader />
 	{:then value}
 		<RepoList repos={value} />
 	{:catch error}
-		<p>Error: {error}</p>
+		<p>Error: {error.message}</p>
 	{/await}
 </section>
 

@@ -21,8 +21,9 @@ async function fetchRepos(octokit: Octokit, q: string): Promise<GitHubAPIRepo[]>
 	}));
 }
 
-export const load: PageServerLoad = async ({ locals }) => {
+export const load: PageServerLoad = async ({ locals, url }) => {
+	const q = url.searchParams.get("q") ?? "svelte";
 	console.log("Fetching repo data with Octokit...");
-	const repos = fetchRepos(locals.octokit, "svelte");
+	const repos = fetchRepos(locals.octokit, q);
 	return { repos };
 };

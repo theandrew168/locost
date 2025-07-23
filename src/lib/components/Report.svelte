@@ -14,81 +14,69 @@
 	const totalLines = report.languageSummary.reduce((sum, lang) => sum + lang.lines, 0);
 </script>
 
-<section class="report">
-	<h1>Project Metrics</h1>
-	<section class="summary-cards">
-		<SummaryCard
-			icon={faCode}
-			iconBackgroundColor="#3b82f6"
-			title="Total Lines of Code"
-			value={totalLines.toLocaleString("en-US")}
-		/>
-		<SummaryCard
-			icon={faDollarSign}
-			iconBackgroundColor="#22c55e"
-			title="Estimated Cost"
-			value={report.estimatedCost.toLocaleString("en-US", {
-				style: "currency",
-				currency: "USD",
-			})}
-		/>
-		<SummaryCard
-			icon={faCalendar}
-			iconBackgroundColor="#eab308"
-			title="Estimated Schedule"
-			value={report.estimatedScheduleMonths.toLocaleString("en-US", {
-				maximumFractionDigits: 2,
-			}) + " months"}
-		/>
-		<SummaryCard
-			icon={faUsers}
-			iconBackgroundColor="#a855f7"
-			title="Team Size"
-			value={report.estimatedPeople.toLocaleString("en-US", {
-				maximumFractionDigits: 2,
-			}) + ` ${report.estimatedPeople <= 1 ? "person" : "people"}`}
-		/>
-	</section>
+<section class="summary-cards">
+	<SummaryCard
+		icon={faCode}
+		iconBackgroundColor="#3b82f6"
+		title="Total Lines of Code"
+		value={totalLines.toLocaleString("en-US")}
+	/>
+	<SummaryCard
+		icon={faDollarSign}
+		iconBackgroundColor="#22c55e"
+		title="Estimated Cost"
+		value={report.estimatedCost.toLocaleString("en-US", {
+			style: "currency",
+			currency: "USD",
+		})}
+	/>
+	<SummaryCard
+		icon={faCalendar}
+		iconBackgroundColor="#eab308"
+		title="Estimated Schedule"
+		value={report.estimatedScheduleMonths.toLocaleString("en-US", {
+			maximumFractionDigits: 2,
+		}) + " months"}
+	/>
+	<SummaryCard
+		icon={faUsers}
+		iconBackgroundColor="#a855f7"
+		title="Team Size"
+		value={report.estimatedPeople.toLocaleString("en-US", {
+			maximumFractionDigits: 2,
+		}) + ` ${report.estimatedPeople <= 1 ? "person" : "people"}`}
+	/>
+</section>
 
-	<section class="language-summary">
-		<header>
-			<h2 class="language-summary-header">Language Summary</h2>
-			<ul class="language-summary-header-row">
-				<li>Language</li>
-				<li>Files</li>
-				<li>Lines</li>
-				<li>Blanks</li>
-				<li>Comments</li>
-				<li>Code</li>
-				<li>Complexity</li>
-			</ul>
-		</header>
-		<ul>
-			{#each report.languageSummary as languageSummary}
-				<li class="language-summary-row">
-					<span>{languageSummary.name}</span>
-					<span>{languageSummary.count}</span>
-					<span>{languageSummary.lines}</span>
-					<span>{languageSummary.blank}</span>
-					<span>{languageSummary.comment}</span>
-					<span>{languageSummary.code}</span>
-					<span>{languageSummary.complexity}</span>
-				</li>
-			{/each}
+<section class="language-summary">
+	<header>
+		<h2 class="language-summary-header">Language Summary</h2>
+		<ul class="language-summary-header-row">
+			<li>Language</li>
+			<li>Files</li>
+			<li>Lines</li>
+			<li>Blanks</li>
+			<li>Comments</li>
+			<li>Code</li>
+			<li>Complexity</li>
 		</ul>
-	</section>
+	</header>
+	<ul>
+		{#each report.languageSummary as languageSummary}
+			<li class="language-summary-row">
+				<span>{languageSummary.name}</span>
+				<span>{languageSummary.count}</span>
+				<span>{languageSummary.lines}</span>
+				<span>{languageSummary.blank}</span>
+				<span>{languageSummary.comment}</span>
+				<span>{languageSummary.code}</span>
+				<span>{languageSummary.complexity}</span>
+			</li>
+		{/each}
+	</ul>
 </section>
 
 <style>
-	.report {
-		max-width: 64em;
-		margin: 0 auto;
-		padding: 0 1em;
-	}
-	h1 {
-		font-size: 2em;
-		margin: 1em 0;
-	}
 	.summary-cards {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
