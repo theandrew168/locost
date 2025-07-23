@@ -1,14 +1,28 @@
+import { Octokit } from "octokit";
+
+import type { GitHubAPIRepo } from "$lib/types";
+
 import type { PageServerLoad } from "./$types";
 
 // TODO: Cache the repos.
 
-export const load: PageServerLoad = async ({ locals }) => {
-	console.log("Fetching repo data with Octokit...");
-	const repos = await locals.octokit.rest.search.repos({
-		q: "svelte",
+async function fetchRepos(octokit: Octokit, q: string): Promise<GitHubAPIRepo[]> {
+	const response = await octokit.rest.search.repos({
+		q,
 		sort: "stars",
 		order: "desc",
 	});
+	return response.data.items.map((item) => ({
+		name: item.name,
+		full_name: item.full_name,
+		description: item.description ?? undefined,
+		language: item.language ?? undefined,
+		stargazers_count: item.stargazers_count,
+	}));
+}
 
-	return { repos: repos.data.items };
+export const load: PageServerLoad = async ({ locals }) => {
+	console.log("Fetching repo data with Octokit...");
+	const repos = fetchRepos(locals.octokit, "svelte");
+	return { repos };
 };
