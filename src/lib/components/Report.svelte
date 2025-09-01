@@ -2,7 +2,7 @@
 	import { faCalendar } from "@fortawesome/free-regular-svg-icons";
 	import { faCode, faDollarSign, faUsers } from "@fortawesome/free-solid-svg-icons";
 
-	import type { SCCReport } from "$lib/server/scc";
+	import type { SCCReport } from "$lib/server/report";
 
 	import SummaryCard from "./SummaryCard.svelte";
 

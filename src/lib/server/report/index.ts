@@ -61,7 +61,7 @@ function run(cmd: string): Promise<string> {
 	});
 }
 
-export class SCCAnalyzer {
+export class SCCReporter {
 	async analyze(path: string): Promise<SCCReport> {
 		const cmd = `scc --format json2 ${path}`;
 		const output = await run(cmd);

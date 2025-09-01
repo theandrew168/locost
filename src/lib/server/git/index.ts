@@ -13,6 +13,11 @@ export class GitCloner {
 		this.dataDir = dataDir;
 	}
 
+	/**
+	 * Clone a Git repository to a local directory.
+	 * @param repo The repository to clone.
+	 * @returns The local directory where the repository was cloned.
+	 */
 	async clone(repo: Repo): Promise<string> {
 		const dir = path.join(this.dataDir, repo.key());
 		const url = repo.url();
