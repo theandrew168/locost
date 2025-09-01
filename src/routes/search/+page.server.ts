@@ -22,7 +22,11 @@ async function fetchRepos(octokit: Octokit, q: string): Promise<GitHubAPIRepo[]>
 }
 
 export const load: PageServerLoad = async ({ locals, url }) => {
-	const q = url.searchParams.get("q") ?? "svelte";
+	const q = url.searchParams.get("q");
+	if (!q) {
+		return { repos: [] };
+	}
+
 	console.log("Fetching repo data with Octokit...");
 	const repos = fetchRepos(locals.octokit, q);
 	return { repos };

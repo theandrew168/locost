@@ -26,10 +26,11 @@
 					<span class="home-link-text">LoCost</span>
 				</a>
 			</li>
-			<!-- TODO: Only show when not authenticated. -->
-			<li><a href="/signin">Sign in with GitHub</a></li>
-			<!-- TODO: Only show when authenticated. -->
-			<li><a href="/signout">Sign out</a></li>
+			<li>
+				<a href="https://docs.github.com/en/search-github/searching-on-github/searching-for-repositories">
+					How to Search
+				</a>
+			</li>
 		</ul>
 	</nav>
 </header>

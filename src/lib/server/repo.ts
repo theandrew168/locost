@@ -5,18 +5,18 @@ export type Repo = {
 
 export class GitHubRepo implements Repo {
 	private owner: string;
-	private repo: string;
+	private name: string;
 
-	constructor(owner: string, repo: string) {
+	constructor(owner: string, name: string) {
 		this.owner = owner;
-		this.repo = repo;
+		this.name = name;
 	}
 
 	key(): string {
-		return `github/${this.owner}/${this.repo}`;
+		return `github/${this.owner}/${this.name}`;
 	}
 
 	url(): string {
-		return `https://github.com/${this.owner}/${this.repo}`;
+		return `https://github.com/${this.owner}/${this.name}`;
 	}
 }

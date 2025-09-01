@@ -1,3 +1,5 @@
+import { rm } from "node:fs/promises";
+
 import { GitCloner } from "$lib/server/git";
 import { GitHubRepo, type Repo } from "$lib/server/repo";
 import { SCCAnalyzer, type SCCReport } from "$lib/server/scc";
@@ -20,13 +22,17 @@ async function cloneAndAnalyzeRepo(repo: Repo) {
 	const analyzer = new SCCAnalyzer();
 	const report = await analyzer.analyze(codeDir);
 
+	console.log("Cleaning and caching...");
+	await rm(codeDir, { recursive: true, force: true });
 	cache.set(repo.key(), report);
+
 	return report;
 }
 
 export const load: PageServerLoad = async ({ params }) => {
-	const { owner, repo } = params;
-	const ghRepo = new GitHubRepo(owner, repo);
-	const report = cloneAndAnalyzeRepo(ghRepo);
-	return { report };
+	const { owner, name } = params;
+	const repo = new GitHubRepo(owner, name);
+	const url = repo.url();
+	const report = cloneAndAnalyzeRepo(repo);
+	return { owner, name, url, report };
 };

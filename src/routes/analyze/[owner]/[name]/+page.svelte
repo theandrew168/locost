@@ -8,7 +8,7 @@
 </script>
 
 <section class="report">
-	<h1 class="report-title">Project Metrics</h1>
+	<h1 class="report-title"><a href={data.url} target="_blank">{data.owner}/{data.name}</a></h1>
 
 	{#await data.report}
 		<Loader />
@@ -28,5 +28,6 @@
 	.report-title {
 		font-size: 2em;
 		margin: 1em 0;
+		text-decoration: underline;
 	}
 </style>

@@ -13,9 +13,9 @@
 
 <section>
 	<header class="browse-header">
-		<h1 class="browse-header-title">Your Repositories</h1>
+		<h1 class="browse-header-title">Repositories</h1>
 		<search>
-			<form method="GET" action="/browse">
+			<form method="GET" action="/search">
 				<input class="browse-header-search" type="text" name="q" value={q} placeholder="Search repositories..." />
 			</form>
 		</search>
