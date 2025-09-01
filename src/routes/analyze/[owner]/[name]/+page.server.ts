@@ -10,7 +10,7 @@ const cache: Map<string, SCCReport> = new Map();
 
 async function cloneAndAnalyzeRepo(repo: Repo) {
 	if (cache.has(repo.key())) {
-		console.log(`Using cached report for ${repo.key()}`);
+		console.log(`Using cached report for repo: ${repo.key()}`);
 		return cache.get(repo.key())!;
 	}
 

@@ -27,7 +27,10 @@
 				</a>
 			</li>
 			<li>
-				<a href="https://docs.github.com/en/search-github/searching-on-github/searching-for-repositories">
+				<a
+					href="https://docs.github.com/en/search-github/searching-on-github/searching-for-repositories"
+					target="_blank"
+				>
 					How to Search
 				</a>
 			</li>
