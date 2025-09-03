@@ -11,8 +11,8 @@ export class RepoAnalyzer {
 		const cloner = new GitCloner();
 		const codeDir = await cloner.clone(repo);
 
-		const analyzer = new SCCReporter();
-		const report = await analyzer.analyze(codeDir);
+		const reporter = new SCCReporter();
+		const report = await reporter.analyze(codeDir);
 
 		await rm(codeDir, { recursive: true, force: true });
 
