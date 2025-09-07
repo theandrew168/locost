@@ -1,6 +1,7 @@
+import type { SCCReport } from "$lib/types";
+
 import { RepoAnalyzer } from ".";
 import type { Repo } from "../repo";
-import type { SCCReport } from "../report";
 
 const cache: Map<string, SCCReport> = new Map();
 

@@ -6,12 +6,12 @@ Web App for Analyzing Lines of Code + Cost
 
 ### Setup
 
-This project depends on [NodeJS](https://nodejs.org/en) v22 (or higher).
+This project depends on [NodeJS](https://nodejs.org/en) v22 (or higher) and [scc](https://github.com/boyter/scc).
 
-On macOS, this dependency can be easily installed via [Homebrew](https://brew.sh/):
+On macOS, these dependencies can be easily installed via [Homebrew](https://brew.sh/):
 
 ```
-brew install node
+brew install node scc
 ```
 
 ### Building
