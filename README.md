@@ -14,6 +14,27 @@ On macOS, these dependencies can be easily installed via [Homebrew](https://brew
 brew install node scc
 ```
 
+### Caching
+
+This project optionally uses [Redis](https://redis.io/) for caching.
+To test the caching locally, you'll need an instance of Redis running.
+
+### Containers
+
+I find [Docker](https://www.docker.com/) to be a nice tool for this but you can use whatever works best.
+
+The following command starts the necessary containers:
+
+```bash
+docker compose up -d
+```
+
+These containers can be stopped via:
+
+```bash
+docker compose down
+```
+
 ### Building
 
 When building for production, SvelteKit's [adapter-node](https://svelte.dev/docs/kit/adapter-node) is used to compile the project into a NodeJS-ready directory.
