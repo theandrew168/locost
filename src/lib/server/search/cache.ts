@@ -3,7 +3,7 @@ import type { Octokit } from "octokit";
 import type { GitHubAPIRepo } from "$lib/types";
 
 import { RepoSearcher } from ".";
-import type { RedisConnection } from "../redis";
+import { DEFAULT_TTL_SECONDS, type RedisConnection } from "../redis";
 
 const memoryCache: Map<string, GitHubAPIRepo[]> = new Map();
 
@@ -43,7 +43,12 @@ export class RedisCachedRepoSearcher extends RepoSearcher {
 		}
 
 		const result = await super.search(q);
-		this.conn.client.SET(key, JSON.stringify(result));
+		this.conn.client.SET(key, JSON.stringify(result), {
+			expiration: {
+				type: "EX",
+				value: DEFAULT_TTL_SECONDS,
+			},
+		});
 		return result;
 	}
 }

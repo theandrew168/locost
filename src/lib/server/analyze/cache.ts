@@ -1,7 +1,7 @@
 import type { SCCReport } from "$lib/types";
 
 import { RepoAnalyzer } from ".";
-import type { RedisConnection } from "../redis";
+import { DEFAULT_TTL_SECONDS, type RedisConnection } from "../redis";
 import type { Repo } from "../repo";
 
 const memoryCache: Map<string, SCCReport> = new Map();
@@ -38,7 +38,12 @@ export class RedisCachedRepoAnalyzer extends RepoAnalyzer {
 		}
 
 		const result = await super.analyze(repo);
-		this.conn.client.SET(key, JSON.stringify(result));
+		this.conn.client.SET(key, JSON.stringify(result), {
+			expiration: {
+				type: "EX",
+				value: DEFAULT_TTL_SECONDS,
+			},
+		});
 		return result;
 	}
 }

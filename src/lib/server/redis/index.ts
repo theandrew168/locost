@@ -1,5 +1,10 @@
 import { createClient } from "redis";
 
+/**
+ * By default, expire cached entries after 24 hours.
+ */
+export const DEFAULT_TTL_SECONDS = 24 * 60 * 60;
+
 export type RedisClient = ReturnType<typeof createClient>;
 
 export class RedisConnection {
